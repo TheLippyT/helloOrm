@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 public class KkfNummer {
+    //when do you use serialVersionID?
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
