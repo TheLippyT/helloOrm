@@ -12,10 +12,13 @@ public class Onderneming {
     private String naam;
     private String adres;
     private LocalDate oprichtingsdatum;
-    private String kkfnummer;
+
     @ManyToOne
     @JoinColumn(name = "persoon_id", nullable = false)
     Persoon eigenaar;
+    @OneToOne
+    @JoinColumn(name = "kkf_id", nullable = false)
+    KkfNummer kkfNummer;
 
     public Onderneming() {
     }
@@ -25,8 +28,11 @@ public class Onderneming {
         this.naam = naam;
         this.adres = adres;
         this.oprichtingsdatum = oprichtingsdatum;
-        this.kkfnummer = kkfnummer;
+//        this.kkfnummer = kkfnummer;
         this.eigenaar = eigenaar;
+    }
+
+    public Onderneming(Long id, String naam, String kwie_kwie_straat, LocalDate of, Long i, Persoon foundPersoon) {
     }
 
     public Long getId() {
@@ -45,8 +51,14 @@ public class Onderneming {
         return oprichtingsdatum;
     }
 
-    public String getKkfnummer() {
-        return kkfnummer;
+
+
+    public KkfNummer getKkfNummer() {
+        return kkfNummer;
+    }
+
+    public void setKkfNummer(KkfNummer kkfNummer) {
+        this.kkfNummer = kkfNummer;
     }
 
     public Persoon getEigenaar() {
@@ -60,7 +72,7 @@ public class Onderneming {
                 ", naam='" + naam + '\'' +
                 ", adres='" + adres + '\'' +
                 ", oprichtingsdatum=" + oprichtingsdatum +
-                ", kkfnummer='" + kkfnummer + '\'' +
+                ", kkfnummer='" + kkfNummer + '\'' +
                 '}';
     }
 }
