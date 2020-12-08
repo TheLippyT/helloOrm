@@ -13,6 +13,7 @@ public class Charity {
     private Long id;
     @Column
     private String charityName;
+    private String charityGoal;
     @ManyToMany(mappedBy = "charity")
     Celebrity celebrity;
 
@@ -39,6 +40,14 @@ public class Charity {
 
     public void setCharityName(String charityName) {
         this.charityName = charityName;
+    }
+
+    public String getCharityGoal() {
+        return charityGoal;
+    }
+
+    public void setCharityGoal(String charityGoal) {
+        this.charityGoal = charityGoal;
     }
 
     public Celebrity getCelebrity() {

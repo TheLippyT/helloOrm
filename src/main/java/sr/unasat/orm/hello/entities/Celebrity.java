@@ -12,6 +12,7 @@ public class Celebrity {
     private Long id;
     @Column
     private String celebrityName;
+    private String pseydonym;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "celebrity_charity", joinColumns ={@JoinColumn(referencedColumnName = "id")}
     , inverseJoinColumns ={@JoinColumn(referencedColumnName = "id")})
@@ -50,11 +51,20 @@ public class Celebrity {
         this.charity = charity;
     }
 
+    public String getPseydonym() {
+        return pseydonym;
+    }
+
+    public void setPseydonym(String pseydonym) {
+        this.pseydonym = pseydonym;
+    }
+
     @Override
     public String toString() {
         return "Celebrity{" +
                 "id=" + id +
-                ", celebrity='" + celebrityName + '\'' +
+                ", celebrityName='" + celebrityName + '\'' +
+                ", pseydonym='" + pseydonym + '\'' +
                 ", charity=" + charity +
                 '}';
     }
